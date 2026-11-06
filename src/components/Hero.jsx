@@ -3,12 +3,20 @@ import { useRef } from "react"
 import profilepicture from "../assets/profilepicture.jpg"
 import { Button } from "@/components/ui/button"
 import {useGSAP} from "@gsap/react"
+import gsap from "gsap"
 
 function Hero() {
     const container = useRef();
+    const spin = useRef();
 
     useGSAP(() => {
-        gsap.to(".vinyl", {rotation: 360});
+        spin.current = gsap.to(".vinyl", {
+            rotation: 360, // 1 full rotation
+            duration: 3, // 3 seconds per iteration
+            ease: "none", // moves smoothly 
+            repeat: -1, // endless
+            paused: true,
+        });
 
     }, {scope: container});
     return (
@@ -21,8 +29,14 @@ function Hero() {
             </div>
 
             <div ref={container} className = " z-10  w-56 h-auto text-white">
-                <svg className = "w-24 h-24 ml-18" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="vinyl-record 1" clipPath="url(#clip0_1_3)">
+                <svg className = " vinyl w-24 h-24 ml-18" 
+                onMouseEnter={() => spin.current.play()}
+                    onMouseLeave={() => spin.current.pause()}
+                
+                viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="vinyl-record 1" clipPath="url(#clip0_1_3)"
+                    >
+                    
                     <g id="Group">
                     <path id="Vector" d="M39.2672 6.73282C34.9256 2.39111 29.1484 0 23 0C16.8516 0 11.0744 2.39111 6.73282 6.73282C2.39111 11.0745 0 16.8516 0 23C0 29.1484 2.39111 34.9255 6.73282 39.2672C11.0744 43.6089 16.8516 46 23 46C29.1484 46 34.9256 43.6089 39.2672 39.2672C43.6089 34.9255 46 29.1484 46 23C46 16.8516 43.6089 11.0745 39.2672 6.73282ZM23 44.5161C11.136 44.5161 1.48387 34.864 1.48387 23C1.48387 11.136 11.136 1.48387 23 1.48387C34.864 1.48387 44.5161 11.136 44.5161 23C44.5161 34.864 34.864 44.5161 23 44.5161Z" fill="currentColor"/>
                     <path id="Vector_2" d="M23 40.8064C13.1815 40.8064 5.19354 32.8185 5.19354 23C5.19354 22.5902 4.86145 22.2581 4.45161 22.2581C4.04176 22.2581 3.70967 22.5902 3.70967 23C3.70967 28.1566 5.71507 33.002 9.35659 36.6434C12.998 40.2848 17.8433 42.2903 23 42.2903C23.4098 42.2903 23.7419 41.9581 23.7419 41.5484C23.7419 41.1386 23.4098 40.8064 23 40.8064Z" fill="currentColor"/>
