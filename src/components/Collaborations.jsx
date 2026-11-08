@@ -1,57 +1,31 @@
-import coverArt from "../assets/coverArt.JPEG"
-import coverBabydoll from "../assets/cover-babydoll.JPEG"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
-import { Button } from "@/components/ui/button"
 
 
 function Collaborations() {
-    return (
-        <section id = "collaborations" className = "relative min-h-screen text-white">
-        
-            <img className="h-full w-full absolute " src={coverArt} alt="Cover Art" />
-        
 
-        <div className = "relative z-20 flex min-h-screen items-center justify-center">
-        <Carousel className = "w-full max-w-md">
-            <CarouselContent>
-                <CarouselItem>
-                    <div className = "bg-pink-500 text-black" >
-                        <img src={coverBabydoll} className = "w-full h-auto object-cover"/>
-                    
-                    </div>
-                </CarouselItem>
-                
-                <CarouselItem>
-                    <div className = "bg-amber-50 text-black">
-                    Babydoll
-                    </div>
-                </CarouselItem>
-                
-                <CarouselItem>
-                    <div className = "bg-amber-400 text-black">
-                        Song 3 
-                    </div>
-                </CarouselItem>
-            </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-        </Carousel>
-        </div>
 
-        <Button className = "absolute bottom-10 left-10 z-30" size="sm" variant="outline"
-            onClick={() => 
-                    document.getElementById("about")?.scrollIntoView({behavior: "smooth"})
-                }
-            >About
-            </Button>
+return (
+    <section className = "min-h-screen bg-black relative text-white flex flex-col gap-10 ml-10 mt-20 ">
+        <h1 className = "flex mt-20">Collaborations</h1>
+        <section className = "grid grid-cols-2 text-center mt-20">
+            <div className = "flex flex-col gap-4">
+                <div className = " border-2 border-gray-500 p-4">
+                <h2 className = "">Productions</h2>
+                <p>Lets work on a project together</p>
+            </div>
+            <p>-non-paid basis</p>
+            <p>-50/50 royality splits</p>
+            </div>
+            
+            
+            <div className = "border-2 border-red-500 p-4 mr-10">
+                <h2>Mixing</h2>
+                <p>I help bring your project to the next level</p>
+            </div>
+            
         </section>
-    )
+        
+    </section>
+)
 }
 
-export default Collaborations;
+export default Collaborations

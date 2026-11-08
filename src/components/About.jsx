@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 
 function About () {
     return (
-        <section id="about" className = "bg-black relative min-h-screen text-white flex justify-center align-items flex-col gap-10" >
+        <section  className = "bg-black relative min-h-screen text-white flex justify-center align-items flex-col gap-10" >
             <img className = "absolute top-20 right-0 w-120" src={about}></img>
             <div className = "flex gap-10 flex-col max-w-2xl px-10 -mt-30">
             <h1>About</h1>
